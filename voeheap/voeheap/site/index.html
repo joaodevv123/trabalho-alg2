@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>VoeHeap - Relatório</title>
+</head>
+<body>
+
+<h1>VoeHeap: Embarque Aéreo com Prioridade</h1>
+<p>Algoritmos e Estruturas de Dados II - 2026<br>Dupla: [NOME 1] e [NOME 2]</p>
+<p>Relatório | <a href="codigo.html">Código-fonte</a> | <a href="log.html">Log dos testes</a></p>
+<hr>
+
+<h2>1. O que foi feito</h2>
+<p>Fila de prioridades para embarque em C, usando um Heap de máximo em vetor (maior número = maior prioridade). Também foram feitos o QuickSort (pivô = mediana de três) e o InsertSort, comparados com o HeapSort em 1024 números aleatórios. Arquivos: <code>heap.h</code> e <code>heap.c</code> (Heap), <code>main.c</code> (menu e ordenações).</p>
+
+<h2>2. O Heap</h2>
+<p>Vetor <code>v[1..final]</code>; pai de <code>i</code> = <code>i/2</code>, filhos = <code>2i</code> e <code>2i+1</code>. Nenhum nó é maior que o pai. Exemplo com as prioridades <code>[10, 8, 8, 5, 7, 2, 4, 3, 3, 4]</code>:</p>
+<pre>
+            10
+        /        \
+      8            8
+    /   \        /   \
+   5     7      2     4
+  / \   /
+ 3   3 4
+</pre>
+
+<h2>3. Operações</h2>
+<table border="1" cellpadding="4">
+<tr><th>Operação</th><th>O que faz</th></tr>
+<tr><td>InicHeap</td><td>Deixa o heap vazio e guarda a capacidade.</td></tr>
+<tr><td>InsereHeap</td><td>Põe no fim do vetor e sobe enquanto for maior que o pai.</td></tr>
+<tr><td>RemoveHeap</td><td>Remove e devolve a raiz (seção 4).</td></tr>
+<tr><td>Heapfy</td><td>Faz o elemento do nó <code>i</code> descer, trocando com o maior filho, até o heap ficar correto.</td></tr>
+<tr><td>ConstroiHeap</td><td>Chama Heapfy de <code>final/2</code> até 1.</td></tr>
+<tr><td>ChecaHeap</td><td>Confere se nenhum nó é maior que o pai.</td></tr>
+<tr><td>ImprimeHeap</td><td>Imprime quem ainda falta embarcar.</td></tr>
+<tr><td>HeapSort</td><td>Constrói o heap e repete: troca a raiz com o último, diminui o heap, Heapfy na raiz. Resultado crescente.</td></tr>
+<tr><td>InsertSort</td><td>Cada elemento volta trocando com o vizinho maior.</td></tr>
+<tr><td>QuickSort</td><td>Pivô = mediana do primeiro, do meio e do último; particiona e ordena as duas partes.</td></tr>
+</table>
+<p>Comparações e trocas são contadas em variáveis globais e mostradas pelo menu.</p>
+
+<h2>4. RemoveHeap</h2>
+<ol>
+<li>Se o heap está vazio, retorna erro.</li>
+<li>Guarda a raiz <code>v[1]</code> para devolver.</li>
+<li>Copia o último elemento para a raiz e diminui <code>final</code>.</li>
+<li>Chama <code>Heapfy(1)</code>, que faz esse elemento descer até o lugar certo. Custo O(log n).</li>
+</ol>
+
+<h2>5. Resultados (1024 aleatórios)</h2>
+<table border="1" cellpadding="4">
+<tr><th>Algoritmo</th><th>Comparações</th><th>Trocas</th><th>Total</th></tr>
+<tr><td>HeapSort</td><td>17359</td><td>9358</td><td>26717</td></tr>
+<tr><td>QuickSort</td><td>14468</td><td>2557</td><td>17025</td></tr>
+<tr><td>InsertSort</td><td>259876</td><td>258860</td><td>518736</td></tr>
+</table>
+<p>Melhor na prática: QuickSort. O HeapSort ficou perto e o InsertSort foi bem pior (O(n<sup>2</sup>)). Os testes estão no <a href="log.html">log</a>.</p>
+
+<h2>6. Compilar</h2>
+<pre>make
+./voeheap
+make log</pre>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>VoeHeap - Log dos testes</title>
+</head>
+<body>
+
+<h1>VoeHeap - Log dos testes</h1>
+<p><a href="index.html">Relatório</a> | <a href="codigo.html">Código-fonte</a> | Log dos testes</p>
+<hr>
+
+<p>Saída do programa executado com <code>./voeheap 2026 &lt; entrada.txt</code> (comando <code>make log</code>). A semente 2026 é fixa para o log poder ser reproduzido; as opções digitadas estão em <a href="fontes/entrada.txt.txt">entrada.txt</a> (uma por linha, na ordem do log). Arquivo bruto: <a href="fontes/log.txt">log.txt</a>.</p>
+
+<h2>Casos testados</h2>
+<table border="1" cellpadding="4">
+<tr><th>Caso</th><th>O que foi testado</th><th>Resultado</th></tr>
+<tr><td>1</td><td>Opções 4 e 2 antes de existir um embarque</td><td>Mensagem de erro, sem travar</td></tr>
+<tr><td>2</td><td>Novo embarque com N = 10 (InsereHeap), ImprimeHeap e ChecaHeap</td><td>Heap válido</td></tr>
+<tr><td>3</td><td>Embarcar um a um (RemoveHeap) e imprimir quem falta</td><td>Saíram as prioridades 10 e 8; heap continuou válido</td></tr>
+<tr><td>4</td><td>Embarcar todos os restantes</td><td>Ordem de embarque com prioridades nunca crescentes</td></tr>
+<tr><td>5</td><td>Embarcar com o heap vazio</td><td>Mensagem de erro</td></tr>
+<tr><td>6</td><td>Vetor desordenado (N = 8) e construção do heap com Heapfy</td><td>"NAO e heap" antes, "heap valido" depois; 11 comparações e 5 trocas</td></tr>
+<tr><td>7</td><td>HeapSort (N = 8)</td><td>Vetor ordenado; 23 comparações e 14 trocas</td></tr>
+<tr><td>8</td><td>HeapSort x QuickSort x InsertSort com 1024 elementos aleatórios</td><td>Os três ordenaram; contagens na tabela do relatório</td></tr>
+<tr><td>9</td><td>Avião com capacidade 1</td><td>Insere e embarca normalmente</td></tr>
+<tr><td>10</td><td>Entradas inválidas: capacidade 2000 e texto "abc" no menu</td><td>O programa avisa e pede de novo</td></tr>
+<tr><td>11</td><td>Prioridades repetidas (N = 5) com HeapSort e embarque</td><td>Ordenou corretamente e o embarque respeitou a prioridade</td></tr>
+</table>
+
+<h2>Log completo</h2>
+<pre>
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+ERRO: nenhum aviao em embarque. Use a opcao 1 ou 6 primeiro.
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+ERRO: nenhum aviao em embarque. Use a opcao 1 ou 6 primeiro.
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Capacidade do aviao (1 a 1024): Inseri Pass1 (prioridade 8)
+Inseri Pass2 (prioridade 3)
+Inseri Pass3 (prioridade 4)
+Inseri Pass4 (prioridade 10)
+Inseri Pass5 (prioridade 7)
+Inseri Pass6 (prioridade 2)
+Inseri Pass7 (prioridade 8)
+Inseri Pass8 (prioridade 3)
+Inseri Pass9 (prioridade 5)
+Inseri Pass10 (prioridade 4)
+10 passageiros no Heap.
+Heap com 10 passageiro(s):
+Pass4(10) Pass1(8) Pass7(8) Pass9(5) Pass5(7) Pass6(2) Pass3(4) Pass8(3) Pass2(3) Pass10(4) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Heap com 10 passageiro(s):
+Pass4(10) Pass1(8) Pass7(8) Pass9(5) Pass5(7) Pass6(2) Pass3(4) Pass8(3) Pass2(3) Pass10(4) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+ChecaHeap: o vetor E um heap valido.
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Embarcou #1: Pass4 (prioridade 10)
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Embarcou #2: Pass1 (prioridade 8)
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Heap com 8 passageiro(s):
+Pass7(8) Pass5(7) Pass3(4) Pass9(5) Pass10(4) Pass6(2) Pass2(3) Pass8(3) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Embarcou #3: Pass7 (prioridade 8)
+Embarcou #4: Pass5 (prioridade 7)
+Embarcou #5: Pass9 (prioridade 5)
+Embarcou #6: Pass10 (prioridade 4)
+Embarcou #7: Pass3 (prioridade 4)
+Embarcou #8: Pass8 (prioridade 3)
+Embarcou #9: Pass2 (prioridade 3)
+Embarcou #10: Pass6 (prioridade 2)
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+ERRO: Heap vazio, ninguem para embarcar!
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Numero de passageiros (1 a 1024): Vetor gerado (sem ordem de heap):
+Pass1(4) Pass2(3) Pass3(5) Pass4(6) Pass5(6) Pass6(4) Pass7(3) Pass8(8) 
+ChecaHeap antes: NAO e heap
+Heapfy (construcao): 11 comparacoes, 5 trocas
+Heap com 8 passageiro(s):
+Pass8(8) Pass4(6) Pass3(5) Pass1(4) Pass5(6) Pass6(4) Pass7(3) Pass2(3) 
+ChecaHeap depois: heap valido
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Vetor ordenado (crescente):
+Pass2(3) Pass7(3) Pass6(4) Pass1(4) Pass3(5) Pass5(6) Pass4(6) Pass8(8) 
+HeapSort: 23 comparacoes, 14 trocas
+Conferencia: vetor ordenado.
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Vetor aleatorio com 1024 elementos
+Algoritmo    Comparacoes     Trocas        Total   Ordenou?
+HeapSort           17359       9358        26717   sim
+QuickSort          14468       2557        17025   sim
+InsertSort        259876     258860       518736   sim
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Capacidade do aviao (1 a 1024): Inseri Pass1 (prioridade 1)
+1 passageiros no Heap.
+Heap com 1 passageiro(s):
+Pass1(1) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Embarcou #1: Pass1 (prioridade 1)
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Capacidade do aviao (1 a 1024): Digite um valor entre 1 e 1024.
+Capacidade do aviao (1 a 1024): Inseri Pass1 (prioridade 4)
+Inseri Pass2 (prioridade 4)
+Inseri Pass3 (prioridade 3)
+Inseri Pass4 (prioridade 2)
+Inseri Pass5 (prioridade 2)
+5 passageiros no Heap.
+Heap com 5 passageiro(s):
+Pass1(4) Pass2(4) Pass3(3) Pass4(2) Pass5(2) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: Valor invalido!
+Opcao: 
+Heap com 5 passageiro(s):
+Pass1(4) Pass2(4) Pass3(3) Pass4(2) Pass5(2) 
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Vetor ordenado (crescente):
+Pass5(2) Pass4(2) Pass3(3) Pass2(4) Pass1(4) 
+HeapSort: 10 comparacoes, 6 trocas
+Conferencia: vetor ordenado.
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Embarcou #1: Pass1 (prioridade 4)
+Embarcou #2: Pass2 (prioridade 4)
+Embarcou #3: Pass3 (prioridade 3)
+Embarcou #4: Pass4 (prioridade 2)
+Embarcou #5: Pass5 (prioridade 2)
+
+VoeHeap - Embarque com Prioridade
+ 1 - Novo embarque (passageiros aleatorios)
+ 2 - Embarcar proximo passageiro (RemoveHeap)
+ 3 - Embarcar todos os passageiros restantes
+ 4 - Imprimir quem ainda falta embarcar (ImprimeHeap)
+ 5 - Checar se e um heap valido (ChecaHeap)
+ 6 - Vetor desordenado + construir heap (Heapfy)
+ 7 - HeapSort e imprimir vetor ordenado
+ 8 - Comparar HeapSort x QuickSort x InsertSort (1024)
+ 0 - Sair
+Opcao: 
+Encerrando o VoeHeap.
+</pre>
+
+</body>
+</html>
